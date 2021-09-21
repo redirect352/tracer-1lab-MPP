@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace TracerLib.TracerResult
 {
+    [XmlType("thread")]
     class ThreadTraceResults
     {
         private Stack<OneTraceResult> threadStack = null;
         private int time = 0;
         private int threadId = -1;
 
+        [JsonPropertyName("time")]
+        [XmlAttribute("time")]
         public int Time
         {
             get
@@ -24,6 +29,8 @@ namespace TracerLib.TracerResult
             }
         }
 
+        [JsonPropertyName("id")]
+        [XmlAttribute("id")]
         public int ThreadID
         {
             get
@@ -38,6 +45,18 @@ namespace TracerLib.TracerResult
 
         }
 
+        [JsonPropertyName("methods")]
+        [XmlElement("method")]
+        public List<OneTraceResult> Methods
+        {
+
+            get
+            {
+                return ThreadStack.ToList<OneTraceResult>();
+
+            }
+
+        }
 
         internal Stack<OneTraceResult> ThreadStack
         {
@@ -62,16 +81,6 @@ namespace TracerLib.TracerResult
         }
 
 
-        public List<OneTraceResult> Methods
-        {
-
-            get
-            {
-                return ThreadStack.ToList<OneTraceResult>();
-
-            }
-
-        }
 
 
         internal ThreadTraceResults Copy()

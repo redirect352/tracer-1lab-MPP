@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Serialization\ITraceResultSerializer.cs" />
     <Compile Include="Serialization\JsonTraceResultSerializer.cs" />
+    <Compile Include="Serialization\XMLTraceResultSerializer.cs" />
     <Compile Include="TracerResult\OneTraceResult.cs" />
     <Compile Include="TracerResult\ThreadTraceResults.cs" />
     <Compile Include="TracerResult\TraceResult.cs" />

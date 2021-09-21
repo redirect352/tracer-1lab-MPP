@@ -1,12 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Serialization;
+using TracerLib.TracerResult;
+
 
 namespace TracerLib.Serialization
 {
-    class XMLTraceResultSerializer
+    class XMLTraceResultSerializer : ITraceResultSerializer
     {
+        private static readonly XmlSerializer Serializer = new XmlSerializer(typeof(TraceResult));
+
+        public string Serialize(TraceResult traceResult)
+        {
+
+
+            StringWriter stringWriter = new StringWriter();
+            Serializer.Serialize(stringWriter, traceResult);
+            return stringWriter.ToString();
+
+        }
     }
 }

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace TracerLib.TracerResult
 {
+    [XmlType("method")]
     class OneTraceResult
     {
 
@@ -15,6 +18,7 @@ namespace TracerLib.TracerResult
         private string methodeName;
         private string className;
 
+        [XmlIgnore]
         public int id;
 
         public OneTraceResult()
@@ -32,6 +36,8 @@ namespace TracerLib.TracerResult
             id = id1;
         }
 
+        [JsonIgnore]
+        [XmlIgnore]
         public long TickCount
         {
             get
@@ -41,6 +47,8 @@ namespace TracerLib.TracerResult
             set { }
         }
 
+        [JsonPropertyName("time")]
+        [XmlAttribute("time")]
         public int MilliSeconds
         {
             get
@@ -50,6 +58,8 @@ namespace TracerLib.TracerResult
             set { }
         }
 
+        [JsonPropertyName("name")]
+        [XmlAttribute("name")]
         public string MethodeName
         {
             get
@@ -60,6 +70,8 @@ namespace TracerLib.TracerResult
 
         }
 
+        [JsonPropertyName("class")]
+        [XmlAttribute("class")]
         public string ClassName
         {
             get
@@ -70,6 +82,8 @@ namespace TracerLib.TracerResult
 
         }
 
+        [JsonPropertyName("methods")]
+        [XmlElement("method")]
         public List<OneTraceResult> Methods
         {
             get
