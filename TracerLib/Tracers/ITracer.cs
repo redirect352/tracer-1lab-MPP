@@ -8,7 +8,7 @@ using TracerLib.TracerResult;
 
 namespace TracerLib.Tracers
 {
-    interface ITracer
+    public interface ITracer
     {
         // вызывается в начале замеряемого метода
         void StartTrace();

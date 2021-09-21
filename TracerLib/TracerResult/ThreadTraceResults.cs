@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace TracerLib.TracerResult
 {
     [XmlType("thread")]
-    class ThreadTraceResults
+    public class ThreadTraceResults
     {
         private Stack<OneTraceResult> threadStack = null;
         private int time = 0;

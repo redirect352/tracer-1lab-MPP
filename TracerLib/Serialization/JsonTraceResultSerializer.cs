@@ -8,7 +8,7 @@ using TracerLib.TracerResult;
 
 namespace TracerLib.Serialization
 {
-    class JsonTraceResultSerializer : ITraceResultSerializer
+    public class JsonTraceResultSerializer : ITraceResultSerializer
     {
         private static readonly JsonSerializerOptions Options = new JsonSerializerOptions
         {

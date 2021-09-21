@@ -10,7 +10,7 @@ using System.Threading;
 
 namespace TracerLib.Tracers
 {
-    class Tracer : ITracer
+    public class Tracer : ITracer
     {
 
         private static object Lock = new object();

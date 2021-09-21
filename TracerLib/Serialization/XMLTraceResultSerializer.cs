@@ -7,7 +7,7 @@ using TracerLib.TracerResult;
 
 namespace TracerLib.Serialization
 {
-    class XMLTraceResultSerializer : ITraceResultSerializer
+    public  class XMLTraceResultSerializer : ITraceResultSerializer
     {
         private static readonly XmlSerializer Serializer = new XmlSerializer(typeof(TraceResult));
 

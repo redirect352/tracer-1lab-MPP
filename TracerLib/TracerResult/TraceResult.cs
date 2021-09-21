@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TracerLib.TracerResult
 {
-    class TraceResult
+    public class TraceResult
     {
         private Dictionary<int, ThreadTraceResults> TraceResults = new Dictionary<int, ThreadTraceResults>();
         private Dictionary<int, OneTraceResult> LastChilds = new Dictionary<int, OneTraceResult>();

@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace TracerLib.TracerResult
 {
     [XmlType("method")]
-    class OneTraceResult
+    public  class OneTraceResult
     {
 
         private Stack<OneTraceResult> st = null;

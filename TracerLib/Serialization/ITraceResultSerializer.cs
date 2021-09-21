@@ -7,7 +7,7 @@ using TracerLib.TracerResult;
 
 namespace TracerLib.Serialization
 {
-    interface ITraceResultSerializer
+    public  interface ITraceResultSerializer
     {
         string Serialize(TraceResult traceResult);
     }
