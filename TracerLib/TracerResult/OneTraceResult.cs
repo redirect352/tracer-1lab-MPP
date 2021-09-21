@@ -70,6 +70,47 @@ namespace TracerLib.TracerResult
 
         }
 
+        public List<OneTraceResult> Methods
+        {
+            get
+            {
+                if (st != null)
+                    return st.ToList<OneTraceResult>();
+                else
+                    return null;
+            }
+
+        }
+
+        public void PushChild(OneTraceResult child)
+        {
+            if (st == null)
+            {
+                st = new Stack<OneTraceResult>();
+                st.Push(child);
+            }
+            else
+            {
+                if (id == child.id - 1)
+                {
+                    st.Push(child);
+
+                }
+                else
+                {
+                    st.Peek().PushChild(child);
+                }
+
+            }
+
+        }
+
+        internal OneTraceResult Copy()
+        {
+            OneTraceResult traceResult = new OneTraceResult(this.className, this.methodeName, this.milliSeconds, this.tickCount, this.id);
+            return traceResult;
+        }
+
 
     }
 }
