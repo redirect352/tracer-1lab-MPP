@@ -62,5 +62,35 @@ namespace TracerLib.TracerResult
         }
 
 
+        public List<OneTraceResult> Methods
+        {
+
+            get
+            {
+                return ThreadStack.ToList<OneTraceResult>();
+
+            }
+
+        }
+
+
+        internal ThreadTraceResults Copy()
+        {
+            ThreadTraceResults newThreadResults = new ThreadTraceResults();
+            newThreadResults.threadId = this.threadId;
+            newThreadResults.time = this.time;
+            newThreadResults.threadStack = new Stack<OneTraceResult>();
+
+            foreach (OneTraceResult oneTrace in threadStack.Reverse())
+            {
+                newThreadResults.threadStack.Push(oneTrace.Copy());
+
+
+            }
+
+            return newThreadResults;
+        }
+
+
     }
 }

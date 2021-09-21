@@ -85,10 +85,15 @@ namespace TracerLib.TracerResult
         }
 
 
+
         internal TraceResult Copy()
         {
-
-            return this;
+            TraceResult newTrace = new TraceResult();
+            foreach (int k in this.TraceResults.Keys)
+            {
+                newTrace.TraceResults.Add(k, this.TraceResults[k].Copy());
+            }
+            return newTrace;
         }
 
     }
