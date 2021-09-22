@@ -37,7 +37,7 @@ namespace TracerLib.TracerResult
         }
 
 
-        public void Push(string classname, string methode, int MsCount, long tick, int id, int ThreadId)
+        internal void Push(string classname, string methode, int MsCount, long tick, int id, int ThreadId)
         {
 
             OneTraceResult oneTraceResult = new OneTraceResult(classname, methode, MsCount, tick, id);
