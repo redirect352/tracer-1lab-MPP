@@ -97,15 +97,6 @@ namespace TracerTests
             _tracer.StopTrace();
         }
 
-        public void MyMethod2()
-        {
-            _tracer.StartTrace();
-            Thread thread = new Thread(_bar.InnerMethod);
-            thread.Start();
-            thread.Join();
-            Thread.Sleep(10);
-            _tracer.StopTrace();
-        }
     }
 
     public class Bar
@@ -120,7 +111,7 @@ namespace TracerTests
         public void InnerMethod()
         {
             _tracer.StartTrace();
-            Thread.Sleep(20);
+            Thread.Sleep(30);
             _tracer.StopTrace();
         }
     }
